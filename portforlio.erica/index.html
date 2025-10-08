@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web Developer Portfolio — Erica</title>
+  <meta name="description" content="Portfolio of Erica — Web Developer. About, Experience, Projects, Contact." />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo="> 
+  <style>
+    :root{
+      --bg:#0f1724;--card:#0b1220;--muted:#94a3b8;--accent:#7c3aed;--glass:rgba(255,255,255,0.04);--radius:14px;--max-width:1100px;--gap:20px;--ff-sans:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:var(--ff-sans);background:linear-gradient(180deg,#071025 0%, #081024 40%, #081227 100%);color:#e6eef8;padding:40px 20px;display:flex;justify-content:center;align-items:flex-start}
+    .wrap{width:100%;max-width:var(--max-width);background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:18px;padding:28px;box-shadow:0 10px 30px rgba(2,6,23,0.6);backdrop-filter:blur(6px)}
+    header{display:flex;gap:16px;align-items:center;justify-content:space-between;margin-bottom:18px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px;color:white;box-shadow:0 6px 18px rgba(124,58,237,0.18)}
+    .brand h1{font-size:18px;margin:0}
+    .brand p{margin:0;color:var(--muted);font-size:13px}
+    nav{display:flex;gap:8px;align-items:center}
+    .nav-links{display:flex;gap:8px}
+    a.btn{padding:8px 14px;border-radius:10px;text-decoration:none;color:var(--muted);font-size:14px}
+    a.btn:hover{color:var(--accent)}
+    .cta{background:linear-gradient(90deg,var(--accent),#06b6d4);color:white;padding:8px 14px;border-radius:12px;font-weight:600}
+    .grid{display:grid;grid-template-columns:1fr 380px;gap:var(--gap)}
+    .main{padding:18px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border-radius:var(--radius)}
+    .section{margin-bottom:22px}
+    h2{margin:0 0 12px 0;font-size:18px}
+    p.lead{color:var(--muted);line-height:1.5}
+    .about{display:flex;gap:16px;align-items:flex-start}
+    .avatar{
+      width:120px;
+      height:120px;
+      border-radius:50%;
+      overflow:hidden;
+      flex-shrink:0;
+      box-shadow:0 6px 14px rgba(0,0,0,0.4);
+    }
+    .avatar img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+    .about .bio{flex:1}
+    .skills{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .skill{background:var(--glass);padding:8px 10px;border-radius:10px;color:var(--muted);font-size:13px}
+    .exp-item{background:transparent;border-left:3px solid rgba(255,255,255,0.04);padding:12px;margin-bottom:10px;border-radius:8px}
+    .exp-item h3{margin:0;font-size:15px}
+    .exp-item p{margin:6px 0 0 0;color:var(--muted);font-size:13px}
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .project{padding:12px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));box-shadow:0 6px 14px rgba(2,6,23,0.4);transition:transform .25s ease}
+    .project:hover{transform:translateY(-6px)}
+    .project h4{margin:0 0 6px 0}
+    .project p{margin:0;color:var(--muted);font-size:13px}
+    .project .tags{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
+    .tag{font-size:12px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.03);color:var(--muted)}
+    .side{padding:18px;background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.005));border-radius:var(--radius)}
+    .contact-card{display:flex;flex-direction:column;gap:12px}
+    .contact-card a{display:flex;gap:10px;align-items:center;padding:10px;border-radius:10px;text-decoration:none;color:var(--muted);background:var(--glass)}
+    form input,form textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit}
+    form label{font-size:13px;color:var(--muted);display:block;margin-bottom:6px}
+    .send{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#06b6d4);color:white;border:none;cursor:pointer;transition:transform .16s ease}
+    .send:active{transform:translateY(1px)}
+    footer{opacity:0.85;text-align:center;color:var(--muted);padding:14px;margin-top:12px;font-size:13px}
+    @media(max-width:980px){
+      .grid{grid-template-columns:1fr}
+      .projects{grid-template-columns:1fr}
+      .avatar{width:100px;height:100px}
+      header{flex-direction:column;align-items:flex-start;gap:12px}
+      nav{width:100%;display:flex;justify-content:space-between}
+    }
+    @media(max-width:520px){
+      body{padding:20px}
+      .wrap{padding:18px}
+      .logo{width:46px;height:46px}
+      .brand h1{font-size:16px}
+      .skill{font-size:12px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap" id="app">
+    <header>
+      <div class="brand">
+      
+        <div>
+          <h1>Erica Garcia</h1>
+          <p>Front-end & Full-stack Web Developer</p>
+        </div>
+      </div>
+      <nav>
+        <div class="nav-links">
+          <a class="btn" href="#about">About</a>
+          <a class="btn" href="#experience">Experience</a>
+          <a class="btn" href="#projects">Projects</a>
+          <a class="btn" href="#contact">Contact</a>
+        </div>
+        <a class="cta" href="#contact">Hire me</a>
+      </nav>
+    </header>
+
+    <main class="grid">
+      <section class="main">
+        <article id="about" class="section about">
+          <div class="avatar">
+            <img src="nye/Erica's Photo.jfif" alt="Erica's Photo">
+          </div>
+          <div class="bio">
+            <h2>About</h2>
+            <p class="lead">Hi — I’m <strong>Erica</strong>, a web developer who builds scalable, accessible, and beautiful user interfaces. I focus on modern web technologies and enjoy turning ideas into interactive products.</p>
+            <div class="skills">
+              <div class="skill">HTML</div>
+              <div class="skill">CSS</div>
+              <div class="skill">JavaScript</div>
+              <div class="skill">Responsive Design</div>
+            </div>
+          </div>
+        </article>
+
+        <article id="experience" class="section">
+          <h2>Experience</h2>
+          <div class="exp-item">
+            <h3>Bachelor of Science in Information Technology</h3>
+            <p>2023 – Present • Built responsive UI components, optimized performance, and collaborated with designers.</p>
+          </div>
+          <div class="exp-item">
+            <h3>Technical-Vocational-Livelihood/Information and Communication Technology</h3>
+            <p>2021 • Created marketing pages, animations, and performed accessibility testing.</p>
+          </div>
+        </article>
+
+        <article id="projects" class="section">
+          <h2>Projects</h2>
+         
+          <div class="projects" id="projects-grid">
+            <div class="project" data-type="frontend">
+              <h4>Portfolio Site</h4>
+              <p>A personal portfolio showcasing projects and blogs using HTML, CSS, and JS.</p>
+              <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+            </div>
+            <div class="project" data-type="fullstack">
+              <h4>Landing Page</h4>
+              <p>A responsive landing page highlighting Mabini’s top attractions, local culture, and scenic spots through modern and mobile-friendly web design using HTML and CSS. </p>
+              <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article id="contact" class="section">
+          <h2>Contact</h2>
+          <p class="lead">Want to work together? Send me a message!</p>
+          <form id="contact-form" onsubmit="return false;">
+            <label for="name">Name</label>
+            <input id="name" name="name" required placeholder="Your full name" />
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required placeholder="you@example.com" />
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Your message..."></textarea>
+            <div style="margin-top:10px">
+              <button class="send" id="send-btn">Send message</button>
+            </div>
+            <p id="form-status" style="margin-top:10px;color:var(--muted)"></p>
+          </form>
+        </article>
+      </section>
+
+      <aside class="side">
+        <div class="contact-card">
+          <h3>Get in touch</h3>
+          <a href="https://www.linkedin.com/in/erica-garcia-371b41388?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"> LinkedIn</a>
+          <a href="https://github.com/23-41792" target="_blank"> GitHub</a>
+          <div style="margin-top:10px">
+            <h4>Quick info</h4>
+            <p style="color:var(--muted);margin:6px 0 0 0;">Location: Batangas, Philippines</p>
+            <p style="color:var(--muted);margin:6px 0 0 0;">Open to: Freelance & Full-time</p>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>© <span id="year"></span> Erica — Built with HTML, CSS & JavaScript</footer>
+  </div>
+
+  <script>
+    (function(){
+      document.getElementById('year').textContent = new Date().getFullYear();
+      const buttons=document.querySelectorAll('[data-filter]');
+      const projects=document.querySelectorAll('.project');
+      buttons.forEach(btn=>btn.addEventListener('click',()=>{
+        const filter=btn.getAttribute('data-filter');
+        projects.forEach(p=>{
+          p.style.display=(filter==='all'||p.getAttribute('data-type')===filter)?'block':'none';
+        });
+      }));
+      const form=document.getElementById('contact-form');
+      const status=document.getElementById('form-status');
+      document.getElementById('send-btn').addEventListener('click',async()=>{
+        const name=document.getElementById('name').value.trim();
+        const email=document.getElementById('email').value.trim();
+        const message=document.getElementById('message').value.trim();
+        if(!name||!email||!message){status.textContent='Please complete all fields.';return;}
+        if(!/^\S+@\S+\.\S+$/.test(email)){status.textContent='Invalid email.';return;}
+        status.textContent='Sending...';
+        document.getElementById('send-btn').disabled=true;
+        await new Promise(r=>setTimeout(r,900));
+        status.textContent='Message received.';
+        form.reset();
+        document.getElementById('send-btn').disabled=false;
+      });
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click',function(e){
+          const target=document.querySelector(this.getAttribute('href'));
+          if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});}
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
